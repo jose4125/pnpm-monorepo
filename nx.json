@@ -1,0 +1,62 @@
+{
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "babel": true,
+        "style": "scss",
+        "linter": "eslint",
+        "bundler": "vite"
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
+  "release": {
+    "projects": ["app-root", "app-products"],
+    "projectsRelationship": "independent",
+    "version": {
+      "conventionalCommits": true
+    },
+    "changelog": {
+      "projectChangelogs": true
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ]
+}

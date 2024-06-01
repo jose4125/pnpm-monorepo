@@ -1,0 +1,3 @@
+{
+  "./{frontend,backend}/**/*.{js,jsx,ts,tsx}": ["eslint"]
+}
